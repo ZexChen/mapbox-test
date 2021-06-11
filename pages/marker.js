@@ -8,7 +8,7 @@ export default function MarkerPage() {
   const [viewport, setViewPort] = useState({
     longitude: -122.45,
     latitude: 37.78,
-    zoom: 14,
+    zoom: 13,
   })
 
   return (
@@ -21,7 +21,7 @@ export default function MarkerPage() {
     >
       <Marker longitude={-122.41} latitude={37.78} offsetLeft={-20} offsetTop={-10}>
         <div>Marker is Here !!</div>
-        <img src="https://www.scdn.co/i/_global/twitter_card-default.jpg" />
+        <img width="100" height="100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Circle-icons-computer.svg/1024px-Circle-icons-computer.svg.png" />
       </Marker>
     </ReactMapGL>
   )

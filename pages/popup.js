@@ -25,9 +25,8 @@ export default function popup() {
             longitude={-122.41}
             latitude={37.78}
             onClose={() => togglePopup(false)}
-            anchor="top"
           >
-            <div>show popup</div>
+            <div style={{ width: 100, textAlign: 'center' }}>Popup Message</div>
           </Popup>
         )
       }

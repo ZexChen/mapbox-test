@@ -27,31 +27,34 @@ const scaleControlStyle = {
   top: 10,
 }
 
-export default function controlPage() {
+export default function controlPage(props) {
   const [viewport, setViewport] = useState({
     longitude: -122.45,
     latitude: 37.78,
     zoom: 13,
   });
   return (
-    <ReactMapGL
-      {...viewport}
-      attributionControl={false}
-      mapboxApiAccessToken={mapboxToken}
-      width="100vw"
-      height="100vh"
-      onViewportChange={setViewport}
-    >
-      <AttributionControl compact={true} style={attributionStyle} />
-      <FullscreenControl style={fullscreenControlStyle} />
-      <GeolocateControl
-        style={geolocateControlStyle}
-        positionOptions={{enableHighAccuracy: true}}
-        trackUserLocation={true}
-        auto
-      />
-      <NavigationControl style={navControlStyle} />
-      <ScaleControl maxWidth={100} unit="metric" style={scaleControlStyle} />
-    </ReactMapGL>
+    <div>
+      {props.sidebar}
+      <ReactMapGL
+        {...viewport}
+        attributionControl={false}
+        mapboxApiAccessToken={mapboxToken}
+        width="100vw"
+        height="100vw"
+        onViewportChange={setViewport}
+      >
+        <AttributionControl compact={true} style={attributionStyle} />
+        <FullscreenControl style={fullscreenControlStyle} />
+        <GeolocateControl
+          style={geolocateControlStyle}
+          positionOptions={{enableHighAccuracy: true}}
+          trackUserLocation={true}
+          auto
+        />
+        <NavigationControl style={navControlStyle} />
+        <ScaleControl maxWidth={100} unit="metric" style={scaleControlStyle} />
+      </ReactMapGL>
+    </div>
   )
 }

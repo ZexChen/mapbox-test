@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import ReactMapGL, { LinearInterpolator, FlyToInterpolator, WebMercatorViewport } from 'react-map-gl';
+import ReactMapGL, { FlyToInterpolator, WebMercatorViewport } from 'react-map-gl';
+import Button from '@material-ui/core/Button';
 import { mapboxToken } from '../utils';
 
 export default function FlyLocation() {
   const [viewport, setViewport] = useState({
-    width: 800,
-    height: 600,
+    width: '100vw',
+    height: '80vh',
     longitude: -122.45,
     latitude: 37.78,
     zoom: 14,
@@ -43,8 +44,14 @@ export default function FlyLocation() {
         transitionDuration={3000}
         transitionInterpolator={new FlyToInterpolator()}
       />
-      <button onClick={goToNYC}>Go To New York</button>
-      <button onClick={goToSF}>goToSF</button>
+      <div style={{ textAlign: 'center', marginTop: 10 }}>
+        <Button style={{ marginRight: 10 }} onClick={goToNYC} variant="outlined" color="primary">
+          Go To New York
+        </Button>
+        <Button onClick={goToSF} variant="outlined" color="secondary">
+          Go To San Francisco
+        </Button>
+      </div>
     </div>
   );
 }
